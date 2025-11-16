@@ -7,6 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=list_alt" />
     <title>Laravel's Catching</title>
     <link rel="icon" type="image/png" href="https://i.ibb.co/svgBB6xJ/icon.png">
   </head>
@@ -59,23 +61,91 @@
       color: rgb(255, 64, 86)!important;
     }
     .logo {
-      width: 50px;
+      width: 40px;
       height: auto;
     }
     .bi-linkedin {
       color: rgb(255, 64, 86);
     }
+    .sidebar {
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 2000;
+    }
+    .lg {
+      border-radius: 0!important;
+    }
+    .navbar-brand {
+      display: flex;
+      align-items: center; /* vertically aligned */
+      gap: 10px; /* space between icon and image */
+    }
+    .navbar-brand .bi-list {
+      cursor: pointer;
+      color: rgb(255, 64, 86);
+      border: 1px solid rgb(255, 64, 86);
+      border-radius: 5px;
+    }
+    .offcanvas-start {
+      width: 280px!important;
+    }
+    .menu-list {
+      font-size: 14px!important;
+      margin-top: 5px!important;
+    }
+    .txt {
+      font-size: clamp(12px, 2.5vw, 15px);
+      /* white-space: pre-wrap;
+      word-break: break-word; */
+    }
   </style>
   <body>
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Topics</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-0 m-0">
+      
+      <div class="list-group lg">
+        <!-- <a href="https://web002-five.vercel.app/" class="list-group-item list-group-item-action" aria-current="true">
+          <div class="d-flex w-100 justify-content-between">
+            <p class="mb-1 menu-list">Password Protected Folder</p>
+          </div>
+        </a> -->
+        <a href="#" class="list-group-item list-group-item-action active">
+          <div class="d-flex w-100 justify-content-between">
+            <p class="mb-1 menu-list">Laravel's Catching</p>
+          </div>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <p class="mb-1 menu-list">Pest + Laravel</p>
+          </div>
+        </a>
+      </div>
+      
+    </div>
+  </div>
+
   <nav class="navbar sticky-top bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="#">       
+        <svg data-bs-toggle="offcanvas" href="#offcanvasExample" xmlns="http://www.w3.org/2000/svg" width="33" height="33" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+        </svg>
         <img class="logo ls-is-cached lazyloaded" src="https://i.ibb.co/dsGB1z6J/EM.png" alt="">
       </a>
     </div>
   </nav>
     <div class="container">
       <div class="card mb-3 cache" style="max-width: 100%;">
+        <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"></a>
         <div class="card-header"> 
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-rocket-takeoff" viewBox="0 0 16 16">
                 <path d="M9.752 6.193c.599.6 1.73.437 2.528-.362s.96-1.932.362-2.531c-.599-.6-1.73-.438-2.528.361-.798.8-.96 1.933-.362 2.532"/>
@@ -101,7 +171,7 @@ We’ll cache some data (like posts) and display it on the homepage.</p>
         <div class="col-md-8">
           <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" class="scrollspy" tabindex="0">
             <div class="list-item-design">
-              <pre class="card-text" id="list-item-1">
+              <pre class="card-text txt" id="list-item-1">
               //app/Http/Controllers/HomeController.php
 
               &lt;?php
@@ -131,7 +201,7 @@ We’ll cache some data (like posts) and display it on the homepage.</p>
               </pre>
             </div>
             <div class="list-item-design">
-              <pre class="card-text" id="list-item-2">
+              <pre class="card-text txt" id="list-item-2">
               //routes/web.php
 
               use App\Http\Controllers\HomeController;
@@ -156,7 +226,7 @@ We’ll cache some data (like posts) and display it on the homepage.</p>
               </pre>
             </div>
             <div class="list-item-design">
-              <pre class="card-text" id="list-item-3">
+              <pre class="card-text txt" id="list-item-3">
               //resources/views/home.blade.php
 
               &lt;!DOCTYPE html&gt;
@@ -248,8 +318,3 @@ We’ll cache some data (like posts) and display it on the homepage.</p>
     })();
   </script>
 </html>
-
-
-
-
-
